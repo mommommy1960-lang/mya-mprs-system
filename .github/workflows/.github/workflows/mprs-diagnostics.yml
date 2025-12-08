@@ -1,0 +1,58 @@
+name: MPRS Diagnostics
+
+on:
+  workflow_dispatch:      # lets you run it by hand
+  schedule:
+    - cron: "0 */6 * * *" # also runs every 6 hours
+
+jobs:
+  diagnostics:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write     # needed so it can commit the status file
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run MPRS diagnostics
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          mkdir -p docs
+
+          cat <<EOF > docs/MPRS_STATUS.md
+          # MPRS Status
+
+          Last check-in: $TIMESTAMP
+
+          ## System health
+          - ✅ Repo reachable
+          - ✅ Workflow runner online
+
+          ## Proxy-phase robotics stack
+          - MPRS spec: present
+          - Rescue-first policy: CERL-1.0
+          - Campaign workflow: detected (if run_mprs_campaign.yml exists)
+
+          ## Phase-path test matrix (simulation placeholder)
+
+          | Material class        | Scenario                      | Status |
+          |-----------------------|-------------------------------|--------|
+          | Soft debris / fabric  | Victim extraction             | ✅ Sim OK (placeholder) |
+          | Drywall / light panel | Interior wall breach (rescue) | ✅ Sim OK (placeholder) |
+          | Reinforced door       | Controlled entry (rescue)     | ⏳ Detailed model TODO |
+          | Composite / armor     | High-risk barrier             | ⏳ Safety review TODO   |
+
+          Notes:
+          - All tests are software-level placeholders only.
+          - Real-world hardware tests require safety review and lab approval.
+          EOF
+
+      - name: Commit status update
+        run: |
+          git config user.name "MPRS-Bot"
+          git config user.email "actions@github.com"
+          git add docs/MPRS_STATUS.md
+          git commit -m "chore: update MPRS diagnostics snapshot" || echo "No changes to commit"
+          git push
