@@ -8,9 +8,10 @@ on:
 jobs:
   diagnostics:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     permissions:
-      contents: write     # needed so it can commit the status file
+      contents: read
 
     steps:
       - name: Checkout repository
@@ -49,10 +50,9 @@ jobs:
           - Real-world hardware tests require safety review and lab approval.
           EOF
 
-      - name: Commit status update
-        run: |
-          git config user.name "MPRS-Bot"
-          git config user.email "actions@github.com"
-          git add docs/MPRS_STATUS.md
-          git commit -m "chore: update MPRS diagnostics snapshot" || echo "No changes to commit"
-          git push
+      - name: Publish diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mprs-diagnostics
+          path: docs/MPRS_STATUS.md
+          retention-days: 30
