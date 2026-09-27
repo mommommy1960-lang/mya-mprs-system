@@ -1,25 +1,21 @@
 # Mobile Proxy-Phase Robotics System (MPRS)
 
-Full engineering stack for rescue-first robotics under CERL-1.0.
+**Status:** Early-stage rescue-robotics research and controlled simulation
 
-This repository includes:
-- Emitter geometry specifications
-- Burst cycle tuning and safety envelope
-- Proxy-phasing theory (rescue-only)
-- Full firmware scaffolding
-- Simulations for waveform tunneling and field resonance
-- Audit logging, interlocks, and validation systems
-- Humanitarian-use compliance (CERL-1.0 / LQIDA)
+MPRS is a Civic Continuum research project exploring bounded, human-supervised robotics for safety-oriented and humanitarian applications.
 
-© 2025 Mya P. Brown. Licensed under CERL-1.0.
+Public material is limited to the project's purpose, evidence status, governance principles, and safety boundaries. The project does not claim validated matter phasing, operational rescue readiness, or a deployable physical system.
 
-## COMMONS NETWORK
+## Disclosure boundary
 
-MPRS is one node in the Commons Initiative project nervous system.
+The following remain non-public during development:
 
-- **Continuity spine:** https://github.com/mommommy1960-lang/commons-sentience-sandbox/tree/main/docs/continuity
-- **Network map:** https://github.com/mommommy1960-lang/commons-sentience-sandbox/blob/main/docs/continuity/PROJECT_NERVOUS_SYSTEM.md
-- **Aurora:** https://github.com/mommommy1960-lang/aurora-sovereign-core
-- **Flux:** https://github.com/mommommy1960-lang/flux-drive-kernel
+- geometry, dimensions, materials, tolerances, and component arrangements;
+- firmware, control logic, waveform parameters, and calibration procedures;
+- simulation configuration, test fixtures, thresholds, and failure analyses;
+- fabrication, assembly, deployment, or operating instructions; and
+- unpublished patent, design-around, or reviewer materials.
 
-Project status, dependencies, handoffs, and evidence boundaries are synchronized through the continuity spine.
+Any future technical disclosure will be deliberate, versioned, and reviewed for safety and intellectual-property implications.
+
+© 2025–2026 Mya P. Brown. Public notice only; no implementation license is granted by this summary.
