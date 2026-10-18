@@ -19,3 +19,8 @@ The following remain non-public during development:
 Any future technical disclosure will be deliberate, versioned, and reviewed for safety and intellectual-property implications.
 
 © 2025–2026 Mya P. Brown. Public notice only; no implementation license is granted by this summary.
+
+
+## Mutual collaboration boundaries
+
+Before protected exchange or shared work, read our [collaboration boundaries](https://github.com/mommommy1960-lang/commons-sentience-sandbox/blob/main/docs/continuity/PUBLIC_COLLABORATION_BOUNDARIES.md). Both parties retain their existing rights; scope, confidentiality, contributions, access and exit must be agreed for the actual engagement. Existing licenses and lawful reporting rights remain unaffected. This operating notice is not an executed contract.
